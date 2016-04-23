@@ -4,9 +4,9 @@ require_relative 'src/stego'
 
 
 =begin
-    @note: Just a proof of concept that
-    stegnography and cryptography plugin 
-    archtecture are working just fine.
+ @note: Just a proof of concept that
+ stegnography and cryptography plugin
+ archtecture are working just fine.
 =end
 
 # message and key to be used on encryption process
