@@ -7,16 +7,28 @@ class Vigenere < AbstractCypher
       @key = key
     end
 
-    public
+    def keyMatch(content)
+    key = @key
+    if key.length < content.length
+      i = 0
+      while key.length < content.length
+      key << key[i]
+      i += 1
+      end
+    else key.length > content.length
+      while key.length > content.length
+        key.chop!
+      end
+      $key = key
+    end
+
     def encrypt(content)
-      key = @key
+      key = keyMatch(content)
 	  key.upcase!
       key = key.each_byte.to_a
       content.upcase!
       content = content.each_byte.to_a
       i = 0
-      na = 65
-      l = 26
       while i < content.length
         j = key[i] + content[i]
         j = j - 65
@@ -33,14 +45,12 @@ class Vigenere < AbstractCypher
     end
 
   def decrypt(content)
-	  key = @key
+	  key = keyMatch(content)
 	  key.upcase!
       content.upcase!
       key = key.each_byte.to_a
       content = content.each_byte.to_a
       i = 0
-      na = 65
-      l = 26
       while i < content.length
         j = content[i] - key[i]
         j = j + 65
