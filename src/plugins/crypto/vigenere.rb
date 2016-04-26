@@ -41,7 +41,6 @@ class Vigenere < AbstractCypher
         i += 1
       end
       content = content.join
-      puts content
     end
 
   def decrypt(content)
@@ -62,6 +61,5 @@ class Vigenere < AbstractCypher
         i += 1
       end
 	  content = content.join
-      puts content
   end
 end
