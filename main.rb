@@ -21,7 +21,7 @@ v = Cypher.new("Vigenere", key)
 
 #CRYPTO
 #encrypting message
-#v.encrypt(message)
+puts v.encrypt(message)
 
 #STEGNO
 #hiding message
@@ -32,7 +32,7 @@ v = Cypher.new("Vigenere", key)
 
 #CRYPTO
 #decrypting message
-v.decrypt(message)
+#puts v.decrypt(message)
 
 #puts message
 #printing it
