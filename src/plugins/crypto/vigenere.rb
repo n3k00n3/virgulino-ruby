@@ -55,7 +55,7 @@ class Vigenere < AbstractCypher
         @key << @key[i]
         i += 1
         end
-      else @key.length > content.length
+      elsif @key.length > content.length
         while @key.length > content.length
           @key.chop!
         end
