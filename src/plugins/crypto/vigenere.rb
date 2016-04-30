@@ -16,7 +16,6 @@ class Vigenere < AbstractCypher
         j = @key[i].codepoints.first + content[i].codepoints.first
         j -= 65
         char = j - 26
-        puts j
         if char < 65
           char += 26
         end
