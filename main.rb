@@ -30,9 +30,9 @@ puts v.encrypt(message)
 #unhiding message
 #message = s.unhide
 
-#CRYPTO
+#CRYPTO#
 #decrypting message
-#puts v.decrypt(message)
+puts v.decrypt(message)
 
 #puts message
 #printing it

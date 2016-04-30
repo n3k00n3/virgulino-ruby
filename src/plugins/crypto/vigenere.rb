@@ -21,9 +21,11 @@ class Vigenere < AbstractCypher
         if char < 65
           char = char + 26
         end
+        @key[i] = @key[i].chr
         content[i] = char.chr
         i += 1
       end
+      @key = @key.join
       content = content.join
     end
 
@@ -41,9 +43,11 @@ class Vigenere < AbstractCypher
         if char > 90
           char = char - 26
         end
+        @key[i] = @key[i].chr
         content[i] = char.chr
         i += 1
       end
+      @key = @key.join
       content = content.join
     end
 
