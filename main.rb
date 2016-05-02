@@ -1,14 +1,18 @@
 #!/usr/bin/env ruby
+require_relative 'virgulino'
 require_relative 'src/cypher'
 require_relative 'src/stego'
 
+v = Virgulino.new()
+
+v.handler()
 
 =begin
  @note: Just a proof of concept that
  stegnography and cryptography plugin
  archtecture are working just fine.
 =end
-
+=begin
 # message and key to be used on encryption process
 message="LBMCOCJMSSDCX"
 key = "limaolimaolim"
@@ -37,3 +41,4 @@ puts v.decrypt(message)
 #puts message
 #printing it
 #puts "If virgulino's plugins are working right you should see \'ABC\' above:\n#{message}"
+=end
