@@ -78,14 +78,32 @@ class Virgulino
   def where_everthing_actually_happens()
     @enc_type = @enc_type.capitalize() if @encrypt or @decrypt
     @steg_type = @steg_type.capitalize() if @steg
-    @key = @key.to_i()
+    @key = @key.to_i() if !(@key.nil?)
 
+    @cypher = Cypher.new(@enc_type, @key) if ((@encrypt || @decrypt) and @key != nil)
+    if (@encrypt)
+      @cypher.encrypt(@message)
+      if (@input)
+        @stego = Stego.new(@steg_type, @input_filepath)
+        @stego.hide(@message)
+      end
 
-    @cypher = Cypher.new(@enc_type, @key) if @encrypt and @key != nil
-    puts (@message)
-    @cypher.encrypt(@message)
-    puts @message
+    else
+      if !@message.nil?
+        @cypher.decrypt(@message)
+
+      elsif @steg
+        @stego = Stego.new(@steg_type, @input_filepath)
+        @message = @stego.unhide
+        @cypher.decrypt(@message)
+
+      else
+        raise ArgumentError.new('[!!] decrypting demands an input file or a message [!!]')
+
+      end
+
+    end
 
   end
-end
 
+end
