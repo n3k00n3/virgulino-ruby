@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require "getoptlong"
+require "terminfo"
 require_relative 'src/cypher'
 require_relative 'src/stego'
 
@@ -27,8 +28,10 @@ class Virgulino
       case opt
       when "--options"
         help()
+
       when "--help"
         help()
+
       when "--encrypt"
         @encrypt = true
         @enc_type = arg
@@ -36,10 +39,13 @@ class Virgulino
       when "--decrypt"
         @decrypt = true
         @enc_type = arg
+
       when "--key"
-        @key = arg
+        @key = String.new(arg)
+
       when "--message"
         @message = String.new(arg)
+
       when "--input"
         @input = true
         @input_filepath = arg
@@ -71,38 +77,53 @@ class Virgulino
     puts "HELP (not implemented)"
   end
 
-  def write_to_file()
-
-  end
-
   def where_everthing_actually_happens()
     @enc_type = @enc_type.capitalize() if @encrypt or @decrypt
     @steg_type = @steg_type.capitalize() if @steg
-    @key = @key.to_i() if !(@key.nil?)
 
-    @cypher = Cypher.new(@enc_type, @key) if ((@encrypt || @decrypt) and @key != nil)
-    if (@encrypt)
+    @cypher = Cypher.new(@enc_type, @key) if ((@encrypt or @decrypt) and (@key != nil))
+
+    if @encrypt
       @cypher.encrypt(@message)
-      if (@input)
-        @stego = Stego.new(@steg_type, @input_filepath)
-        @stego.hide(@message)
+      if @steg and !(@input_filepath.nil?) and !(@output_filepath.nil?)
+        @stego = Stego.new(@steg_type)
+        @stego.hide(@message, @input_filepath, @output_filepath)
+
+      elsif @stego
+        raise ArgumentError.new('[!!] Input and/or Output Filepath missing [!!]')
+      else
+        raise ArgumentError.new('[!!] Stegnography flag no setted [!!]')
       end
+
+    elsif @decrypt
+      raise ArgumentError.new('[!!] No input file provided [!!]') if @input_filepath.nil?
+      raise ArgumentError.new('[!!] No stego setted [!!]') if @steg.nil?
+
+      @stego = Stego.new(@steg_type)
+
+      @message = @stego.unhide(@input_filepath)
+      @cypher.decrypt(@message)
+      !(@output_filepath.nil?) ? save() : show()
+
 
     else
-      if !@message.nil?
-        @cypher.decrypt(@message)
-
-      elsif @steg
-        @stego = Stego.new(@steg_type, @input_filepath)
-        @message = @stego.unhide
-        @cypher.decrypt(@message)
-
-      else
-        raise ArgumentError.new('[!!] decrypting demands an input file or a message [!!]')
-
-      end
-
+      raise ArgumentError.new('[!!] Please set one of the flags [encrypt/decyrpt] [!!]')
     end
+  end
+
+  private
+  def save()
+    begin
+      fd = File.open(@output_filepath, "w")
+      fd.write(@message)
+      fd.close()
+    rescue SystemCallError
+      raise StandardError.new('[!!] Unable to write to the file [!!]')
+    end
+  end
+
+  def show()
+    puts "\nBEGIN MESSAGE\n\n" << @message << "\n\nEND MESSAGE\n"
 
   end
 

@@ -5,7 +5,7 @@ require_relative 'src/stego'
 
 v = Virgulino.new()
 
-v.handler()
+v.options_handler()
 
 =begin
  @note: Just a proof of concept that
