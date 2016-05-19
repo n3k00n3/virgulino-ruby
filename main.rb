@@ -2,7 +2,6 @@
 require_relative 'src/cypher'
 require_relative 'src/stego'
 
-
 =begin
  @note: Just a proof of concept that
  stegnography and cryptography plugin

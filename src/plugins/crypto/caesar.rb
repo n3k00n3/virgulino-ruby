@@ -5,12 +5,15 @@ module Cypher_Consts
     ASCII_TABLE_ENDING       = 127
 end
 
-class Ceasar < AbstractCypher
+class Caesar < AbstractCypher
     include Cypher_Consts
 
     def initialize(key)
-        raise ArgumentError.new('[!!] Invalid Key [!!]') if !(key.is_a? Integer) and key > 0
-        @key = key
+        begin
+            @key = key.to_s.to_i 
+        rescue
+            raise ArgumentError.new('[!!] Invalid Key [!!] Key value(' << @key << ') must be > 0 !!') if @key <= 0
+        end
     end
 
     public
