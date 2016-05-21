@@ -26,7 +26,7 @@ class FrontEnd < Gtk::Window
     @ok_button = nil
 
     @crypto_type = nil
-
+    
     def initialize()
         super
         set_title("PROOF OF CONCEPT")
@@ -37,6 +37,7 @@ class FrontEnd < Gtk::Window
         signal_connect "destroy" do
             Gtk::main_quit()
         end 
+
         @crypto_type = "caesar"
         arrange()
 
@@ -50,7 +51,7 @@ class FrontEnd < Gtk::Window
         @message_box = Gtk::Box.new(Gtk::Orientation::HORIZONTAL, 2)
         @message_label = Gtk::Label.new("Message")
         @message_entry_text = Gtk::Entry.new()
-
+        
         @vbox.pack_start(@message_box,:expand => false, :fill => false, :padding => 2)
         @message_box.pack_start(@message_label,:expand => false, :fill => false, :padding => 2)
         @message_box.pack_start(@message_entry_text,:expand => true, :fill => true, :padding => 2)
@@ -58,7 +59,7 @@ class FrontEnd < Gtk::Window
         @endecrypt_box = Gtk::Box.new(Gtk::Orientation::HORIZONTAL, 2)
         @endecrypt_label = Gtk::Label.new("Encrypted")
         @endecrypted_entry_text = Gtk::Entry.new()
-
+        
         @vbox.pack_start(@endecrypt_box,:expand => false, :fill => false, :padding => 2)
         @endecrypt_box.pack_start(@endecrypt_label,:expand => false, :fill => false, :padding => 2)
         @endecrypt_box.pack_start(@endecrypted_entry_text,:expand => true, :fill => true, :padding => 2)
@@ -106,9 +107,28 @@ class FrontEnd < Gtk::Window
 
     def on_click()
         encrypter = Cypher.new(@crypto_type, @key_entry.text)
+=begin        
+        if !(@message_entry_text.text.nil?)
+            message = @message_entry_text.text 
+            encrypter.encrypt(message)
+            @endecrypted_entry_text.set_text(message)
+        elsif
+            enc = @endecrypted_entry_text.text()
+            encrypter.decrypt(enc)
+            @message_entry_text.set_text(enc)
+        end
+=end
         message = @message_entry_text.text
-        encrypter.encrypt(message)
-        @endecrypted_entry_text.set_text (message)
+        if (message == "")
+            enc = @endecrypted_entry_text.text()
+            encrypter.decrypt(enc)
+            @message_entry_text.set_text(enc)
+        else
+            message = @message_entry_text.text 
+            encrypter.encrypt(message)
+            @endecrypted_entry_text.set_text(message)
+
+        end
     end
 
 end 
