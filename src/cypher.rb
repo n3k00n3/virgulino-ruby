@@ -16,17 +16,16 @@ class Cypher < AbstractCypher
 
   end
 
-  private
-  def set_type(type)
-    begin
-      @instance = (@config_filepath.nil?) ? eval(type).new(@key) : eval(type).new(@key, @config_filepath)
-      raise if !(@instance.kind_of? AbstractCypher)
-    rescue
-      raise ArgumentError.new('Invalid cypher type or
-
- class doesn\'t inherit from AbstractCypher')
+    private
+    def set_type(type)
+       begin
+          type.capitalize!
+          @instance = (@config_filepath.nil?) ? eval(type).new(@key) : eval(type).new(@key, @config_filepath)
+          raise if !(@instance.kind_of? AbstractCypher)
+       rescue
+           raise ArgumentError.new('[' << type << '] Invalid cypher type or class doesn\'t inherit from AbstractCypher')        
+       end
     end
-  end
 
   public
   def encrypt(message)

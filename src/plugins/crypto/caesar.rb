@@ -5,16 +5,16 @@ module Cypher_Consts
   ASCII_TABLE_ENDING = 127
 end
 
-class Ceasar < AbstractCypher
-  include Cypher_Consts
+class Caesar < AbstractCypher
+    include Cypher_Consts
 
-  def initialize(key=1)
-    if !(key.is_a? Integer)
-      key = key.to_i
+    def initialize(key)
+        begin
+            @key = key.to_s.to_i 
+        rescue
+            raise ArgumentError.new('[!!] Invalid Key [!!] Key value(' << @key << ') must be > 0 !!') if @key <= 0
+        end
     end
-    raise ArgumentError.new('[!!] Invalid Key [!!]') if !(key.is_a? Integer) and key > 0
-    @key = key
-  end
 
   public
   def encrypt(content)
