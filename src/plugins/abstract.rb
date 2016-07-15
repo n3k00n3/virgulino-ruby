@@ -1,7 +1,8 @@
 require 'active_support/concern'
 
 module Abstract
-  extend ActiveSupport::Concern included do
+  extend ActiveSupport::Concern
+  included do
     def self.abstract_methods(*methods)
       methods.each do |method_name|
         define_method method_name do
