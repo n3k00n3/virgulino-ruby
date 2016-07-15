@@ -1,11 +1,11 @@
-require_relative "abstract"
+require_relative 'abstract'
 
 class AbstractCypher
-    include Abstract
+  include Abstract
 
-    def initialize 
-        Abstract_exception
-    end
+  def initialize
+    Abstract_exception
+  end
 
-    abstract_methods :encrypt, :decrypt
+  abstract_methods :encrypt, :decrypt
 end
