@@ -1,14 +1,14 @@
 Documentation:
   Enabled: false
 Style/IfUnlessModifier:
-  MaxLineLength: 100
+  MaxLineLength: 120
 Style/WhileUntilModifier:
-  MaxLineLength: 100
+  MaxLineLength: 120
 Style/AlignHash:
   Enabled: false
 
 Metrics/LineLength:
-  Max: 100
+  Max: 120
 Metrics/MethodLength:
   Max: 5
 Metrics/ParameterLists:
