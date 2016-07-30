@@ -10,7 +10,7 @@ Style/AlignHash:
 Metrics/LineLength:
   Max: 120
 Metrics/MethodLength:
-  Max: 5
+  Max: 10
 Metrics/ParameterLists:
   Max: 4
 
