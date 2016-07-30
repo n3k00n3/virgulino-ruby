@@ -1,11 +1,11 @@
 require_relative 'abstract'
 
 class AbstractStego
-    include Abstract
+  include Abstract
 
-    def initialize
-        abstract_exception
-    end
+  def initialize
+    abstract_exception
+  end
 
-    abstract_methods :hide, :unhide
+  abstract_methods :hide, :unhide
 end

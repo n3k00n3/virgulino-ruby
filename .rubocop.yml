@@ -1,0 +1,22 @@
+Documentation:
+  Enabled: false
+Style/IfUnlessModifier:
+  MaxLineLength: 120
+Style/WhileUntilModifier:
+  MaxLineLength: 120
+Style/AlignHash:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+Metrics/MethodLength:
+  Max: 10
+Metrics/ParameterLists:
+  Max: 4
+
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'api_sample/*'

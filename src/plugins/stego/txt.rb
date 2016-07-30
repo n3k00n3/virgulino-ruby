@@ -7,12 +7,11 @@ end
 class Txt < AbstractStego
   include TxtConsts
 
-  @content = ""
-  @source = ""
-  def initialize()
+  @content = ''
+  @source = ''
+  def initialize
   end
 
-  public
   def hide(content, input, output)
     content = escape(to_bin(content))
     flaged_content = 32.chr
@@ -27,14 +26,14 @@ class Txt < AbstractStego
   def unhide(input)
     content = from_file(input)
 
-    unhidden = ""
-    hidden = ""
+    unhidden = ''
+    hidden = ''
     tag_open = false
     content.bytes.each do |c|
       if tag_open == true
         if c == TAG
           unhidden << to_string(descape(hidden)) << 8
-          hidden = ""
+          hidden = ''
           tag_open = false
         end
         hidden << c if tag_open == true
@@ -50,9 +49,10 @@ class Txt < AbstractStego
   end
 
   private
-  #String to bin
+
+  # String to bin
   def to_bin(content)
-    bin = ""
+    bin = ''
     content.bytes.each do |x|
       bin += '0' if x < 0x40
       bin += x.to_s(2)
@@ -60,37 +60,37 @@ class Txt < AbstractStego
     bin
   end
 
-  #bin to string
+  # bin to string
   def to_string(content)
-    newstr = ""
+    newstr = ''
     counter = 0
-    final = ""
+    final = ''
 
     content.each_char do |x|
       newstr += x
       counter += 1
       if counter == 7
-        final += (newstr.to_i (2)).chr
+        final += newstr.to_i(2).chr
         counter = 0
-        newstr = ""
+        newstr = ''
       end
     end
     final
   end
 
   def escape(content)
-    content.gsub!(/[10]/, "1" => "\t", "0" => " ")
+    content.gsub!(/[10]/, '1' => "\t", '0' => ' ')
   end
 
   def descape(content)
-    content.gsub!(/[\t ]/, "\t" => "1", " " => "0")
+    content.gsub!(/[\t ]/, "\t" => '1', ' ' => '0')
   end
 
   def from_file(filename)
     begin
-      fd = File.open(filename, "r")
-      content = fd.read()
-      fd.close()
+      fd = File.open(filename, 'r')
+      content = fd.read
+      fd.close
     rescue SystemCallError
       raise StandardError.new('[!!] Unable to read from file []!!')
     end
@@ -100,13 +100,11 @@ class Txt < AbstractStego
 
   def to_file(content, filename)
     begin
-      fd = File.open(filename, "w")
+      fd = File.open(filename, 'w')
       fd.write(content)
-      fd.close()
+      fd.close
     rescue SystemCallError
       raise StandardError.new('[!!] Unable to write to file [!!]')
     end
-
   end
-
 end
