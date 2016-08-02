@@ -12,12 +12,13 @@ class Txt < AbstractStego
   def initialize
   end
 
-  def hide(content, input, output)
+  def hide(content, input=nil, output)
     content = escape(to_bin(content))
     flaged_content = 32.chr
     flaged_content << TAG.chr << content << TAG.chr
-
-    full_content = from_file(input)
+    
+    full_content = ""
+    full_content = from_file(input) if !input.nil?
     full_content << flaged_content
 
     to_file(full_content, output)

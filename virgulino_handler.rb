@@ -85,12 +85,12 @@ class Virgulino
 
     if @encrypt
       @cypher.encrypt(@message)
-      if @steg && !@input_filepath.nil? && !@output_filepath.nil?
+      if @steg && !@output_filepath.nil?
         @stego = Stego.new(@steg_type)
         @stego.hide(@message, @input_filepath, @output_filepath)
 
-      elsif @stego
-        puts '[!!] Input and/or Output Filepath missing [!!]'
+      elsif @steg and @output_filepath.nil?
+        puts '[!!] Output Filepath missing [!!]'
         exit
       else
         puts '[!!] Stegnography flag not setted [!!]'
