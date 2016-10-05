@@ -6,7 +6,7 @@ Now it works with some cipher (like Caesar, Vigenere and xor). Our idea is to ma
 
 ==================
 
-Do you want to contribute?
+# Do you want to contribute?
 
 If you want to contribute, you can get an overview over the open issues. We are happy to answer your questions if you consider to help. All the issues have a link to their specification. If you want to work on an issue feel free to assign yourself.
 
