@@ -10,7 +10,6 @@ class Otp < AbstractCypher
   end
 
   def encrypt(content)
-    @key = rand_key(content) if @key == nil
     if @key == nil
       @key = rand_key(content)
     else
@@ -26,6 +25,7 @@ class Otp < AbstractCypher
         content[i] = @@alphabet[char]
         i += 1
     end
+
     content
   end
 
@@ -60,6 +60,6 @@ class Otp < AbstractCypher
   end
 
   def rand_key(content)
-      @key = @@alphabet.sample(content.length)
+      @key = @@alphabet.sample(content.length).join
   end
 end
