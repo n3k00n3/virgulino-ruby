@@ -20,13 +20,14 @@ If you have other ideas feel free to open an own issue!
 This creates a new branch, called `newbranch` in our example, in your local
 repository.
 4. Make your changes.
-5. `git commit`
-6. `git push origin newdesign:newdesign`
-This pushes your new branch called `newdesign` to your GitHub repository.
+5. `git add --all`
+5. `git commit -m "A comment based on the featured added or fixing matters"`
+6. `git push origin newbranch`
+This pushes your new branch called `newbranch` to your GitHub repository.
 
 ## Integrating your working code to master
 
-When you have made your changes and tested them, please send us a pull request.
+Once you made your changes and tested them, please send us a pull request.
 
 Do you want to contribute?
 
