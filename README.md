@@ -13,3 +13,11 @@ If you want to contribute, you can get an overview over the open issues. We are 
 https://github.com/lampiaosec/virgulino-ruby/issues
 
 Find further details in: https://github.com/lampiaosec/virgulino-ruby/blob/master/CONTRIBUTING.md
+
+## we also use a wiki
+
+Virgulino uses wiki technology to its documentation. Please, go to [Virgulino's wiki](https://github.com/lampiaosec/virgulino/wiki).
+
+#### Why?
+
+If you want understand about why we decided this, look to [here](https://github.com/lampiaosec/virgulino/issues/35).

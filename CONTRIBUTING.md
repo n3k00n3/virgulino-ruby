@@ -4,7 +4,7 @@ So you want to make Virgulino better. Great!
 
 Here are the steps to contribute:
 
-##Grab an issue or create new one
+##Grab an issue or create a new one
 
 Here, you'll have an overview over the open issues: https://github.com/lampiaosec/virgulino-ruby/issues. We are happy to answer your questions if you consider to help. All the issues have a link to their specification. If you want to work on an issue feel free to assign yourself.
 
