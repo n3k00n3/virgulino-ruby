@@ -21,6 +21,22 @@ class Rfence < AbstractCypher
   end
 
   def decrypt(content)
-    #to do
+    a = Array.new
+    b = Array.new
+    content.chars.to_a
+    content.length / 2 % 2 == 0 ? x = content.length / 2 : x = content.length / 2 + 1
+    while x < content.length
+      a << content[x]
+      x += 1
+    end
+    x / 2 % 2 == 0 ? x = content.length / 2 : x = content.length / 2 + 1
+    for i in 0..x
+      b << content[i]
+      b << a[i]
+      while b.length > content.length
+        b.pop
+      end
+    end
+    content = b.join
   end
 end
