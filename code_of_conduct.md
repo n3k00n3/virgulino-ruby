@@ -6,7 +6,7 @@ A primary goal of our community is to be inclusive to the largest number of part
 
 We have written this code of conduct not because we expect bad behavior from our community—which, in our experience, is overwhelmingly kind and civil—but because we believe a clear code of conduct is a necessary part of building a respectful community. Whether you’re a regular participant or a newcomer, we care about making this community a safe place for you and we’ve got your back.
 
-Anyone who violates this code of conduct may be sanctioned or expelled from these spaces at the discretion of the Safety Team.
+Anyone who violates this code of conduct may be sanctioned or expelled from these spaces at the discretion of the Team.
 
 Some of our community spaces may have additional rules in place, which will be made clearly available to participants. Participants are responsible for knowing and abiding by these rules.
 
@@ -23,7 +23,6 @@ This Code of Conduct outlines our expectations for all those who participate in 
 We expect all community participants, developers (paid or otherwise), sponsors, and others, to abide by this Code of Conduct in all community spaces and events - online and in-person, including and not limited to the Virgulino's GitHub, meetup, the discussion and within the sourcecode repository and issue tracking software, regardless of where they are hosted - as well as in all one-on-one and other communications in the context of our community.
 
 ##Expected behavior
-
 
   1. Participate in an authentic and active way. In doing so, you contribute to the health and longevity of this community.
   2. Remember that we’re a world-wide community, so you might not be communicating in someone else’s primary language.
@@ -56,14 +55,31 @@ If any participant violates this Code of Conduct, the Team may take any lawful a
  4. Expulsion of the offender from an in-person event with no refund.
  5. Reporting the offender to appropriate law enforcement agencies.
 
- We prioritize marginalized people’s safety over privileged people’s comfort. We will not act on complaints regarding:
-
+We prioritize marginalized people’s safety over privileged people’s comfort. We will not act on complaints regarding:
 
  1. ‘Reverse’ -isms, including ‘reverse racism,’ ‘reverse sexism,’ and ‘cisphobia’
  2. Reasonable communication of boundaries, such as “leave me alone,” “go away,” or “I’m not discussing this with you.“
  3. Communicating in a ‘tone’ you don’t find congenial
  4. Criticizing racist, sexist, cissexist, or otherwise oppressive behavior or assumptions
 
- The Team reserves the right to exclude people based on their past behavior, including behavior outside our community spaces and behavior towards people who are not in our community.
+The Team reserves the right to exclude people based on their past behavior, including behavior outside our community spaces and behavior towards people who are not in our community.
 
- In order to protect Safety Team volunteers from abuse and burnout, we reserve the right to reject any report we believe to have been made in bad faith. Reports intended to silence legitimate criticism may be deleted without response.
+In order to protect Safety Team volunteers from abuse and burnout, we reserve the right to reject any report we believe to have been made in bad faith. Reports intended to silence legitimate criticism may be deleted without response.
+
+##Addressing Grievances
+
+If you feel you have been falsely or unfairly accused of violating this Code of Conduct, you should notify the Team with a concise description of your grievance. Three people will individually examine your grievance and suggest a course of action to either honor your grievance or dismiss it. The popular course of action will be taken.
+
+##License
+
+This Code of Conduct is licensed CC BY-SA 4.0. Special thanks to these resources:
+
+
+ 1. http://incisive.nu/2014/codes-of-conduct/
+ 2. http://citizencodeofconduct.org/
+ 3. https://github.com/rust-lang/rust/wiki/Note-development-policy
+ 4. https://www.djangoproject.com/conduct/
+ 5. http://srccon.org/conduct/
+ 6. http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy
+ 7. http://geekfeminism.wikia.com/wiki/Community_anti-harassment/Policy
+ 8. http://geekfeminism.org/about/code-of-conduct/
