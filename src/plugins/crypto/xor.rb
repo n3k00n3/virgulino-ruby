@@ -1,4 +1,5 @@
 require_relative '../abstract_cypher'
+require 'base64'
 
 class Xor < AbstractCypher
   def initialize(key)
@@ -13,10 +14,11 @@ class Xor < AbstractCypher
       content[i] = xor.chr
       i += 1
     end
-    content
+    content = Base64.encode64(content)
   end
 
   def decrypt(content)
+    content = Base64.decode64(content)
     @key = key_match(content)
     i = 0
     while i < content.length
