@@ -6,8 +6,8 @@ The idea of the program is to encrypt messages before hiding, making it a little
 
 ## Authors
 
-Fernando 'n3k00n3' Pinheiro
-Victor 'UserX' Flores
+1. Fernando 'n3k00n3' Pinheiro
+2. Victor 'UserX' Flores
 
 ## Description
 
